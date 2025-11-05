@@ -1,58 +1,79 @@
 ---
 layout: default
-title: Home
+title: NissonCX
 ---
 
 <div class="home">
-  <h1>Hi 👋, I'm NissonCX</h1>
+  <h1>Hi 👋, I'm Nisson Chen</h1>
 
   <p>
-    🎓 Computer Science @ Chongqing University<br>
-    🔧 Focused on <strong>Backend Development</strong> and <strong>Distributed Systems</strong><br>
-    💡 Passionate about clean code, system design, and algorithmic thinking
+    🎓 Computer Science student at <strong>Chongqing University</strong><br>
+    🔧 Building scalable backend systems with <strong>Java</strong> and <strong>Spring</strong><br>
+    🐶 小菜犬，但代码从不“菜”
   </p>
 
   <h2>🛠️ Tech Stack</h2>
   <p>
-    Java • Spring Boot • C++ • MySQL • Redis • Kafka • Docker • Git
+    <strong>Languages:</strong> Java, C++, Python<br>
+    <strong>Backend:</strong> Spring Boot, MyBatis<br>
+    <strong>Middleware:</strong> Redis, Kafka, RabbitMQ<br>
+    <strong>DevOps:</strong> Docker, Git, Maven, Nginx
+  </p>
+
+  <h2>🚀 Featured Projects</h2>
+  <ul>
+    <li>
+      <a href="https://github.com/NissonCX/dianping-backend-NissonCX">Blackhorse Dianping (Java Backend)</a> – High-concurrency food review platform
+    </li>
+    <li>
+      <a href="https://github.com/NissonCX/CQU-CS-Professional-Test">CQU CS Professional Test Solutions</a> – Algorithm & system design practice
+    </li>
+  </ul>
+
+  <h2>📝 Blog</h2>
+  <p>
+    I write about:
+    <ul>
+      <li>Backend architecture patterns</li>
+      <li>LeetCode problem breakdowns</li>
+      <li>System design notes</li>
+    </ul>
+    → <a href="/posts/">Read all posts</a>
   </p>
 
   <h2>📬 Connect</h2>
-  <ul class="social-links">
-    <li><a href="https://github.com/NissonCX">GitHub</a></li>
-    <li><a href="https://blog.csdn.net/2301_82028135">CSDN Blog</a></li>
-    <li><a href="mailto:2144546224@qq.com">Email (QQ)</a></li>
-  </ul>
+  <p>
+    <a href="https://github.com/NissonCX">GitHub</a> • 
+    <a href="mailto:nissoncx@gmail.com">Email</a> • 
+    <a href="https://blog.csdn.net/2301_82028135">CSDN</a>
+  </p>
 
-  <h2>📝 Latest Posts</h2>
-  <ul class="post-list">
-    {% for post in site.posts limit:5 %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p><a href="/posts/">View all posts →</a></p>
+  <hr>
+  <p style="text-align: center; color: #666; font-size: 0.9em;">
+    “Write less, run forever.” — NissonCX
+  </p>
 </div>
 
 <style>
 .home {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
   line-height: 1.6;
+  padding: 0 15px;
 }
-.social-links, .post-list {
-  list-style: none;
-  padding: 0;
+.home h2 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #6A99FF;
 }
-.social-links li, .post-list li {
-  display: inline-block;
-  margin-right: 15px;
+.home ul {
+  padding-left: 20px;
 }
-.post-meta {
-  color: #666;
-  font-size: 0.9em;
+.home a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+.home a:hover {
+  text-decoration: underline;
 }
 </style>
