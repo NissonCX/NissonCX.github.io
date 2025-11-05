@@ -4,7 +4,7 @@ title: NissonCX
 ---
 
 <div class="home">
-  <h1>Hi 👋, I'm Nisson Chen</h1>
+  <h1>Hi 👋, I'm Nisson CaoXu</h1>
 
   <p>
     🎓 Computer Science student at <strong>Chongqing University</strong><br>
