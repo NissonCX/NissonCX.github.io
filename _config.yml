@@ -1,3 +1,22 @@
+# _config.yml
 title: NissonCX
-description: CS Student @ Chongqing University | Backend Developer
+email: nissoncx@gmail.com
+description: >-
+  CS Student @ Chongqing University | Backend & Systems Enthusiast.
+  Building scalable systems, one commit at a time.
+baseurl: ""
+url: "https://nissoncx.github.io"
+github_username: NissonCX
+
+# 使用 hacker 主题（极客终端风）
 theme: jekyll-theme-hacker
+
+# 启用 Markdown 扩展
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# 插件（GitHub Pages 自动支持）
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
