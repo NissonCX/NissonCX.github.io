@@ -1,0 +1,95 @@
+---
+layout: default
+title: 博客
+description: 技术文章与学习笔记
+permalink: /blog/
+---
+
+<div class="container">
+  <header class="page-header">
+    <h1>博客</h1>
+    <p>分享技术心得、学习笔记与项目经验</p>
+  </header>
+
+  <!-- Category Filter -->
+  {% assign categories = site.posts | map: "categories" | flatten | uniq | sort %}
+  {% if categories.size > 0 %}
+  <div class="tags" style="justify-content: center; margin-bottom: 32px;">
+    <button class="tag active" data-category="all">全部</button>
+    {% for category in categories %}
+    <button class="tag" data-category="{{ category }}">{{ category }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Posts List -->
+  <div class="grid grid-2" id="posts-grid">
+    {% for post in site.posts %}
+    <article class="card post-card" data-categories="{{ post.categories | join: ' ' }}">
+      <a href="{{ post.url | relative_url }}">
+        <h3 class="post-card-title">{{ post.title }}</h3>
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+        <div class="post-card-meta">
+          <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+          {% if post.categories.size > 0 %}
+          <span>{{ post.categories | first }}</span>
+          {% endif %}
+          {% assign words = post.content | number_of_words %}
+          {% assign minutes = words | divided_by: 200 %}
+          {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+          <span>{{ minutes }} 分钟阅读</span>
+        </div>
+        {% if post.tags.size > 0 %}
+        <div class="tags" style="margin-top: 12px;">
+          {% for tag in post.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size == 0 %}
+  <div style="text-align: center; padding: 64px 0; color: var(--text-secondary);">
+    <p>暂无文章，敬请期待...</p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+(function() {
+  const filterButtons = document.querySelectorAll('[data-category]');
+  const posts = document.querySelectorAll('#posts-grid .post-card');
+
+  filterButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      
+      // Update active state
+      filterButtons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      // Filter posts
+      posts.forEach(function(post) {
+        const postCategories = post.getAttribute('data-categories');
+        if (category === 'all' || postCategories.includes(category)) {
+          post.style.display = '';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+<style>
+.tag.active {
+  background-color: var(--primary);
+  color: white;
+}
+</style>

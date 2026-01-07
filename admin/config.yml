@@ -1,0 +1,126 @@
+# Decap CMS 配置文件
+
+# 后端配置 - 使用 GitHub
+backend:
+  name: github
+  repo: NissonCX/NissonCX.github.io
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# 本地开发时使用 (运行 npx decap-server)
+# local_backend: true
+
+# 媒体文件配置
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# 站点 URL
+site_url: https://nissoncx.github.io
+display_url: https://nissoncx.github.io
+
+# Logo
+logo_url: /assets/images/avatar.png
+
+# 语言设置
+locale: 'zh_Hans'
+
+# 编辑器配置
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# 内容集合
+collections:
+  # 博客文章
+  - name: "posts"
+    label: "博客文章"
+    label_singular: "文章"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
+    summary: "{{title}} - {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - label: "草稿"
+        field: draft
+        pattern: true
+    view_groups:
+      - label: "年份"
+        field: date
+        pattern: \d{4}
+    fields:
+      - label: "布局"
+        name: "layout"
+        widget: "hidden"
+        default: "post"
+      - label: "标题"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:mm:ss"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm:ss"
+        required: true
+      - label: "分类"
+        name: "categories"
+        widget: "list"
+        required: false
+        hint: "文章分类，如：技术、生活、随笔"
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "文章标签，如：Java、Spring、Redis"
+      - label: "摘要"
+        name: "excerpt"
+        widget: "text"
+        required: false
+        hint: "文章摘要，不填则自动截取"
+      - label: "显示目录"
+        name: "toc"
+        widget: "boolean"
+        default: true
+        required: false
+      - label: "草稿"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+      - label: "正文"
+        name: "body"
+        widget: "markdown"
+        required: true
+
+  # 页面
+  - name: "pages"
+    label: "页面"
+    label_singular: "页面"
+    files:
+      - label: "关于页面"
+        name: "about"
+        file: "about.md"
+        fields:
+          - label: "布局"
+            name: "layout"
+            widget: "hidden"
+            default: "page"
+          - label: "标题"
+            name: "title"
+            widget: "string"
+          - label: "描述"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "永久链接"
+            name: "permalink"
+            widget: "hidden"
+            default: "/about/"
+          - label: "内容"
+            name: "body"
+            widget: "markdown"

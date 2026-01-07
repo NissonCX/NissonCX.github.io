@@ -1,0 +1,171 @@
+// ===========================================
+// 基础样式 - Base
+// ===========================================
+
+// 重置样式
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-sans;
+  line-height: $line-height-base;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color $transition-base, color $transition-base;
+  min-height: 100vh;
+}
+
+// CSS 变量 - 浅色模式（默认）
+:root {
+  --bg-color: #{$light-bg};
+  --bg-secondary: #{$light-bg-secondary};
+  --text-color: #{$light-text};
+  --text-secondary: #{$light-text-secondary};
+  --border-color: #{$light-border};
+  --card-bg: #{$light-card-bg};
+  --primary: #{$color-primary};
+  --secondary: #{$color-secondary};
+  --accent: #{$color-accent};
+}
+
+// 深色模式
+[data-theme="dark"] {
+  --bg-color: #{$dark-bg};
+  --bg-secondary: #{$dark-bg-secondary};
+  --text-color: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --border-color: #{$dark-border};
+  --card-bg: #{$dark-card-bg};
+}
+
+// 排版
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: $line-height-tight;
+  color: var(--text-color);
+  margin-bottom: $spacing-md;
+}
+
+h1 { font-size: $font-size-4xl; }
+h2 { font-size: $font-size-3xl; }
+h3 { font-size: $font-size-2xl; }
+h4 { font-size: $font-size-xl; }
+h5 { font-size: $font-size-lg; }
+h6 { font-size: $font-size-base; }
+
+p {
+  margin-bottom: $spacing-md;
+  color: var(--text-secondary);
+}
+
+// 链接
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--secondary);
+  }
+}
+
+// 列表
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// 图片
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// 按钮基础样式
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// 输入框
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// 选择文本颜色
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background: var(--text-color);
+  }
+}
+
+// 引用块
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: $spacing-md;
+  margin: $spacing-lg 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+// 分隔线
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: $spacing-xl 0;
+}
+
+// 表格
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-lg;
+}
+
+th, td {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}

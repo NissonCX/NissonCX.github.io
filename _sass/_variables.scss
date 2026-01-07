@@ -1,0 +1,78 @@
+// ===========================================
+// 变量定义 - Variables
+// ===========================================
+
+// 颜色系统
+$color-primary: #6366f1;      // 主色调 (靛蓝)
+$color-secondary: #8b5cf6;    // 次要色 (紫色)
+$color-accent: #06b6d4;       // 强调色 (青色)
+
+// 浅色模式
+$light-bg: #ffffff;
+$light-bg-secondary: #f9fafb;
+$light-text: #1f2937;
+$light-text-secondary: #6b7280;
+$light-border: #e5e7eb;
+$light-card-bg: #f9fafb;
+
+// 深色模式
+$dark-bg: #0f172a;
+$dark-bg-secondary: #1e293b;
+$dark-text: #f1f5f9;
+$dark-text-secondary: #94a3b8;
+$dark-border: #334155;
+$dark-card-bg: #1e293b;
+
+// 字体
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 30px;
+$font-size-4xl: 36px;
+
+// 行高
+$line-height-base: 1.6;
+$line-height-tight: 1.25;
+$line-height-loose: 1.8;
+
+// 间距
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+
+// 断点
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1280px;
+
+// 圆角
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+// 阴影
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+// 过渡
+$transition-fast: 150ms ease;
+$transition-base: 300ms ease;
+$transition-slow: 500ms ease;
+
+// 容器宽度
+$container-max-width: 1200px;
+$content-max-width: 800px;
+
+// 导航栏高度
+$navbar-height: 64px;

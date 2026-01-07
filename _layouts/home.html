@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>{{ site.author.name }}</h1>
+        <p class="subtitle">{{ site.author.bio }}</p>
+        
+        <!-- Tech Tags -->
+        {% if page.tech_stack %}
+        <div class="tech-tags">
+          {% for tech in page.tech_stack %}
+          <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="flex gap-md" style="margin-top: 24px;">
+          <a href="{{ '/blog' | relative_url }}" class="btn btn-primary">阅读博客</a>
+          <a href="{{ '/about' | relative_url }}" class="btn btn-outline">了解更多</a>
+        </div>
+      </div>
+
+      {% if site.author.avatar %}
+      <div class="hero-avatar">
+        <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Latest Posts Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>最新文章</h2>
+      <p>分享技术心得与学习笔记</p>
+    </div>
+
+    <div class="grid grid-3">
+      {% for post in site.posts limit:6 %}
+      <article class="card post-card">
+        <a href="{{ post.url | relative_url }}">
+          <h3 class="post-card-title">{{ post.title }}</h3>
+          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          <div class="post-card-meta">
+            <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+            {% if post.categories.size > 0 %}
+            <span>{{ post.categories | first }}</span>
+            {% endif %}
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+
+    {% if site.posts.size > 6 %}
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="{{ '/blog' | relative_url }}" class="btn btn-outline">查看全部文章</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Projects Section -->
+{% if page.projects %}
+<section class="section" style="background-color: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header">
+      <h2>精选项目</h2>
+      <p>一些有趣的开源项目和实践</p>
+    </div>
+
+    <div class="grid grid-2">
+      {% for project in page.projects limit:4 %}
+      <div class="card project-card">
+        <h3 class="project-title">{{ project.name }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="tags" style="margin-bottom: 16px;">
+          {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="project-links">
+          {% if project.github %}
+          <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          {% endif %}
+          {% if project.demo %}
+          <a href="{{ project.demo }}" target="_blank" rel="noopener" class="btn btn-primary">查看演示</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="{{ '/projects' | relative_url }}" class="btn btn-outline">查看全部项目</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{{ content }}

@@ -1,0 +1,255 @@
+// ===========================================
+// 布局样式 - Layout
+// ===========================================
+
+// 容器
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+.container-narrow {
+  max-width: $content-max-width;
+}
+
+// 主内容区域
+.main-content {
+  min-height: calc(100vh - #{$navbar-height} - 200px);
+  padding-top: calc(#{$navbar-height} + #{$spacing-xl});
+  padding-bottom: $spacing-3xl;
+}
+
+// 网格系统
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Flexbox 工具类
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: $spacing-sm;
+}
+
+.gap-md {
+  gap: $spacing-md;
+}
+
+.gap-lg {
+  gap: $spacing-lg;
+}
+
+// Section 布局
+.section {
+  padding: $spacing-3xl 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Hero 区域
+.hero {
+  padding: $spacing-3xl 0;
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $spacing-3xl * 1.5 0;
+    text-align: left;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @media (min-width: $breakpoint-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.hero-text {
+  max-width: 600px;
+
+  h1 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-md;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  .subtitle {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.hero-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary);
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// 文章内容布局
+.post-content {
+  max-width: $content-max-width;
+  margin: 0 auto;
+
+  h2, h3, h4 {
+    margin-top: $spacing-2xl;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    line-height: $line-height-loose;
+    margin-bottom: $spacing-lg;
+  }
+
+  ul, ol {
+    margin-bottom: $spacing-lg;
+    
+    li {
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  img {
+    margin: $spacing-xl auto;
+    border-radius: $border-radius-md;
+  }
+}
+
+// 文章头部
+.post-header {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid var(--border-color);
+
+  h1 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-md;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: $font-size-4xl;
+    }
+  }
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+}
+
+// 页面头部
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+
+  h1 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: var(--text-secondary);
+  }
+}
+
+// 两栏布局
+.layout-sidebar {
+  display: grid;
+  gap: $spacing-xl;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+.sidebar {
+  @media (min-width: $breakpoint-tablet) {
+    position: sticky;
+    top: calc(#{$navbar-height} + #{$spacing-lg});
+    height: fit-content;
+  }
+}

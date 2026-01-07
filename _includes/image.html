@@ -1,0 +1,19 @@
+{% comment %}
+图片组件 - 支持懒加载
+使用方法: {% include image.html src="/path/to/image.jpg" alt="描述" caption="图片说明" %}
+{% endcomment %}
+
+<figure class="image-figure">
+  <img 
+    {% if include.lazy != false %}
+    loading="lazy"
+    {% endif %}
+    src="{{ include.src | relative_url }}" 
+    alt="{{ include.alt | default: '' }}"
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+  >
+  {% if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>

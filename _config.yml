@@ -6,17 +6,78 @@ description: >-
   Building scalable systems, one commit at a time.
 baseurl: ""
 url: "https://nissoncx.github.io"
-github_username: NissonCX
 
-# 使用 hacker 主题（极客终端风）
-theme: jekyll-theme-hacker
+# 作者信息
+author:
+  name: NissonCX
+  bio: CS Student @ Chongqing University | Backend & Systems Enthusiast
+  avatar: /assets/images/avatar.png
+  email: nissoncx@gmail.com
+  github: NissonCX
+  csdn: ""
 
-# 启用 Markdown 扩展
+# 导航配置
+navigation:
+  - title: 首页
+    url: /
+  - title: 博客
+    url: /blog
+  - title: 项目
+    url: /projects
+  - title: 关于
+    url: /about
+
+# 社交链接
+social_links:
+  - platform: GitHub
+    url: https://github.com/NissonCX
+    icon: github
+  - platform: Email
+    url: mailto:nissoncx@gmail.com
+    icon: email
+
+# Markdown 配置
 markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# 代码高亮
+highlighter: rouge
 
 # 插件（GitHub Pages 自动支持）
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 文章默认配置
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# 文章摘要分隔符
+excerpt_separator: <!--more-->
+
+# 时区
+timezone: Asia/Shanghai
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
