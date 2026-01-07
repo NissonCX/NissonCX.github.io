@@ -15,9 +15,9 @@ permalink: /blog/
   {% assign categories = site.posts | map: "categories" | flatten | uniq | sort %}
   {% if categories.size > 0 %}
   <div class="tags" style="justify-content: center; margin-bottom: 32px;">
-    <button class="tag active" data-category="all">全部</button>
+    <span class="tag active" data-category="all">全部</span>
     {% for category in categories %}
-    <button class="tag" data-category="{{ category }}">{{ category }}</button>
+    <span class="tag" data-category="{{ category }}">{{ category }}</span>
     {% endfor %}
   </div>
   {% endif %}
@@ -86,10 +86,3 @@ permalink: /blog/
   });
 })();
 </script>
-
-<style>
-.tag.active {
-  background-color: var(--primary);
-  color: white;
-}
-</style>

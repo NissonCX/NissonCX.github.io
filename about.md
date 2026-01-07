@@ -13,7 +13,7 @@ permalink: /about/
 
 <div class="timeline">
   <div class="timeline-item">
-    <div class="timeline-date">2021 - 至今</div>
+    <div class="timeline-date">2023 - 至今</div>
     <div class="timeline-title">重庆大学 · 计算机科学与技术</div>
     <div class="timeline-description">本科在读，专注于后端开发与系统设计</div>
   </div>
